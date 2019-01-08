@@ -1,9 +1,7 @@
 $(document).ready(function(){
   var apiUrl = 'http://157.230.17.132:3013/todos';
-
-
-
   getData(apiUrl);
+
   $('#myButton').click(function(){
     var testoUtente = $('#input-todo').val();
     $.ajax({
@@ -11,6 +9,25 @@ $(document).ready(function(){
       method: 'POST',
       data: {
         text: testoUtente
+      },
+      success: function(data){
+        $('.lista').html('');
+        getData(apiUrl);
+      },
+      error: function(){
+        alert('errore');
+      }
+    })
+  })
+
+  $('#btnModifica').click(function(){
+    var testoDaModificare = $('#testo-modificato').val();
+    var idDaModificare = $('.modifica-todo').val();
+    $.ajax({
+      url: apiUrl + '/' + idDaModificare,
+      method: 'PUT',
+      data: {
+        text: testoDaModificare
       },
       success: function(data){
         $('.lista').html('');
@@ -38,6 +55,8 @@ $(document).ready(function(){
     })
 
   })
+
+
 
 
 
