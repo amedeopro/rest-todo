@@ -2,7 +2,23 @@ $(document).ready(function(){
   var apiUrl = 'http://157.230.17.132:3013/todos';
 
   getData(apiUrl);
-
+  $('#myButton').click(function(){
+    var testoUtente = $('#input-todo').val();
+    $.ajax({
+      url: apiUrl,
+      method: 'POST',
+      data: {
+        text: testoUtente
+      },
+      success: function(data){
+      $('.lista').html('');
+      getData(apiUrl);
+      },
+      error: function(){
+        alert('errore');
+      }
+    })
+  })
 });
 
 

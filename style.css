@@ -5,7 +5,6 @@
 }
 
 .risultato{
-  text-align: center;
   width: 50%;
   height: 250px;
   margin: auto;
@@ -16,5 +15,6 @@
 }
 
 .inserimento-dati{
+  text-align: center;
   margin-bottom: 25px;
 }
