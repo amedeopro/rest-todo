@@ -11,8 +11,8 @@ $(document).ready(function(){
         text: testoUtente
       },
       success: function(data){
-      $('.lista').html('');
-      getData(apiUrl);
+        $('.lista').html('');
+        getData(apiUrl);
       },
       error: function(){
         alert('errore');
