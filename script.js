@@ -51,9 +51,11 @@ function getData(url){
     url: url,
     method: 'GET',
     success: function(data){
+      $('.modifica-todo').html('');
       for (var i = 0; i < data.length; i++) {
         console.log(data[i].text);
         $('.lista').append('<li><span class="deleteTodo" todo-id="' + data[i].id + '">X </span>' + data[i].text + '</li>');
+        $('.modifica-todo').append('<option value="' + data[i].id +'" >' + data[i].text + '</option>' )
       }
     },
     error: function(){
